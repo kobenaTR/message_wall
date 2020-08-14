@@ -41,7 +41,7 @@ function userCheck(data) {
         if (row.email == loginEmail.value) {
             if (row.password == loginPassword.value) {
                 //setCookie 
-                //document.cookie = `id=${row.id}; expires=${tomorrow()}; path=/`;
+                document.cookie = `id=${row.id}; expires=${tomorrow()}; path=/`;
                 openPage();
             } else {
                 return (console.log("Az e-mail cím vagy a Jelszó hibás!"));
@@ -54,6 +54,11 @@ function userCheck(data) {
 
 function openPage() {
     window.open("message_wall.html", "_self");
+}
+
+//Check cookie: must logout to load this page
+if (document.cookie != "") {
+    openPage();
 }
 
 //Sign up new user

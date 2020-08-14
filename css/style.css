@@ -3,6 +3,10 @@ html body{
     background-color: lightsteelblue;
 }
 
+#logout:hover {
+  color: red;
+}
+
 /*User Management*/
 #btnGetUsers{
     margin-top: 20px;

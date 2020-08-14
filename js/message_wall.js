@@ -1,3 +1,10 @@
+function logout() {
+    document.cookie = "id=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+    console.log(document.cookie)
+}
+
+document.getElementById("logout").addEventListener("click", logout)
+
 //dataBases
 //users
 //published_messages
