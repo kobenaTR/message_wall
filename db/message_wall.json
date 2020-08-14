@@ -1,0 +1,32 @@
+{
+  "database": [
+    {
+      "name": "John Star",
+      "date": "2020.07.05 14:34",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "wall_image": "/img/testImage_1.jpeg",
+      "id": 1
+    },
+    {
+      "name": "John Star",
+      "date": "2020.07.05 11:23",
+      "message": "Lorem ipsum dolor sit amet",
+      "wall_image": "",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Harry Parker",
+      "date": "2020.07.06 15:07",
+      "message": "This is a new message!",
+      "wall_image": ""
+    },
+    {
+      "name": "Mr. X",
+      "date": "2020.07.27 15:09",
+      "message": "This is Mr. X first message on the wall!",
+      "wall_image": "/img/testImage_2.jpeg",
+      "id": 4
+    }
+  ]
+}

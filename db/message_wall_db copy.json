@@ -1,0 +1,66 @@
+{
+  "users": [
+      {
+          "id": 1,
+          "name": "Big Tom",
+          "email": "bigtom@gmail.com",
+          "password": "bigtom"
+      },
+      {
+          "id": 2,
+          "name": "Iggy",
+          "email": "iggy@gmail.com",
+          "password": "iggy"
+      },
+      {
+          "id": 3,
+          "name": "Piroska",
+          "email": "piri@gmail.com",
+          "password": "piri"
+      },
+      {
+          "id": 4,
+          "name": "Augustus Monthy",
+          "email": "augmonthy@gmail.com",
+          "password": "passw"
+      }
+  ],
+  "published_messages": [
+      {
+          "id": 1,
+          "userId": 1,
+          "postTime": "2020.07.31 15:07",
+          "modified": false,
+          "modTime": "",
+          "message": "",
+          "image": ""
+      },
+      {
+          "id": 2,
+          "userId": 2,
+          "postTime": "2020.07.31 16:08",
+          "modified": true,
+          "modTime": "2020.08.01 10:59",
+          "message": "",
+          "image": ""
+      },
+      {
+          "id": 3,
+          "userId": 3,
+          "postTime": "2020.08.01 10:22",
+          "modified": false,
+          "modTime": "",
+          "message": "",
+          "image": ""
+      },
+      {
+          "id": 4,
+          "userId": 1,
+          "postTime": "2020.08.01 15:47",
+          "modified": false,
+          "modTime": "",
+          "message": "",
+          "image": ""
+      }
+  ]
+}

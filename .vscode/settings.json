@@ -1,0 +1,9 @@
+{"liveServer.settings.ignoreFiles": 
+    [
+        ".vscode/**",
+        "/node_modules/**",
+        "/db/**",
+        "**/*.ts"
+    ],
+    "liveServer.settings.port": 5501
+}

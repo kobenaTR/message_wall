@@ -1,0 +1,10 @@
+{
+    "images": [
+        {"id": 1, "img": "/img/testImage_1.jpeg", "alt": "img_1"},
+        {"id": 2, "img": "/img/testImage_2.jpeg", "alt": "img_2"},
+        {"id": 3, "img": "/img/testImage_3.jpeg", "alt": "img_3"},
+        {"id": 4, "img": "/img/testImage_4.jpeg", "alt": "img_4"},
+        {"id": 5, "img": "/img/testImage_5.jpeg", "alt": "img_5"},
+        {"id": 6, "img": "/img/testImage_6.jpeg", "alt": "img_6"}
+    ]
+}

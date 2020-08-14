@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Big Tom",
+      "email": "bigtom@gmail.com",
+      "password": "bigtom"
+    },
+    {
+      "id": 2,
+      "name": "Iggy",
+      "email": "iggy@gmail.com",
+      "password": "iggy"
+    },
+    {
+      "id": 3,
+      "name": "Piroska",
+      "email": "piri@gmail.com",
+      "password": "piri"
+    }
+  ],
+  "published_messages": [
+    {
+      "id": 1,
+      "userId": 2,
+      "postTime": "2020.07.31 15:07",
+      "modified": false,
+      "modTime": "",
+      "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam dictum ultrices aliquam. Maecenas non eleifend libero. Donec porta ligula massa, quis aliquam est facilisis sit amet. Quisque rhoncus ullamcorper augue, ac facilisis massa. Ut vitae erat eget eros laoreet auctor. Mauris ut diam eget odio venenatis commodo. Integer id magna blandit leo pulvinar dignissim",
+      "image": "/img/beach_4.jpg"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "postTime": "2020.07.31 16:08",
+      "modified": true,
+      "modTime": "2020.08.01 10:59",
+      "message": "In augue mauris, commodo vitae magna vitae, dapibus efficitur ante. Vestibulum et odio diam.",
+      "image": "/img/beach_5.jpg"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "postTime": "2020.08.01 10:22",
+      "modified": false,
+      "modTime": "",
+      "message": "Fusce sed pellentesque odio.",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "postTime": "2020.08.01 15:47",
+      "modified": false,
+      "modTime": "",
+      "message": "Nullam maximus dui fermentum iaculis imperdiet.",
+      "image": "/img/beach_7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+body{
+    background-color: lightsteelblue;
+}
+
+#btnGetUsers{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.formLogReg {
+    background-color: #0275d8;
+    color: white;
+    margin: 15px;
+    padding: 5px;
+    box-shadow: 5px 5px 5px 5px lightslategray;
+    border-radius: 5px;
+}
