@@ -5,6 +5,78 @@ function logout() {
 
 document.getElementById("logout").addEventListener("click", logout)
 
+//identify user
+
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+
+let dropdownButton = document.getElementsByClassName("dropbtn")
+
+function dropDownMenuFunction() {
+    let showDropdownFunction = function (ev) {
+      this.parentElement.querySelector("div").classList.toggle("show")
+    }
+    for (let i = 0; i < dropdownButton.length; i++) {
+      dropdownButton[i].addEventListener("click", showDropdownFunction);
+    }
+}
+
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function (event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+//Modify button and event handle
+function startModification(button) {
+  let parentTable = button.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement
+  if(document.getElementById("edit") == null) {
+    openEditView(parentTable)
+  }
+}
+
+function openEditView(table) {
+  if (table.id == "") {
+    table.id = "edit"
+    let messageDiv = table.querySelector(".message div")
+    let messageTextArea = table.getElementsByTagName("textarea")[0]
+    messageTextArea.value = messageDiv.innerHTML
+    let showImagePath = table.querySelector(".form-control")
+    showImagePath.value = table.querySelector(".wall_image img").src
+  }
+}
+
+function exitEditView(table = document.getElementById("edit")) {
+  if (table.id == "edit") {
+    table.id = ""
+  }
+}
+
+function updateContent(table = document.getElementById("edit")) {
+  let messageDiv = table.querySelector(".message div")
+  let messageTextArea = table.getElementsByTagName("textarea")[0]
+  messageDiv.innerHTML = messageTextArea.value
+  let showImagePath = table.querySelector(".form-control")
+  table.querySelector(".wall_image img").src = showImagePath.value
+
+  exitEditView()
+}
+
+
+function deleteMessage(button) {
+
+}
+
 //dataBases
 //users
 //published_messages
@@ -41,7 +113,7 @@ function fillTheWall(messages) {
 
         let showName = document.querySelector(".name");
         let showDate = document.querySelector(".date")
-        let showMessage = document.querySelector(".message")
+        let showMessage = document.querySelector(".message div")
         let showImage = document.querySelector(".wall_image")
 
 
@@ -70,7 +142,7 @@ function fillTheWall(messages) {
         let image = createAnyElement("img", {src: messages[i].image})
         showImage.appendChild(image);
     }
-
+    dropDownMenuFunction()
 }
 
 function createMessageTable() {
@@ -81,34 +153,61 @@ function createMessageTable() {
     let tr2 = createAnyElement("tr");
     let tr3 = createAnyElement("tr");
     let tr4 = createAnyElement("tr");
+    let tr5 = createAnyElement("tr", {class: "buttonGroupRow"});
     //name
     let tdName = createAnyElement("td", { class: "name" })
-    //buttons
-    let tdButtons = createAnyElement("td", { class: "buttonTd", rowspan: 2 })
-    let buttonMod = createAnyElement("button", { class: "btn btn-info btn-sm" })
-    buttonMod.innerHTML = "Mod"
-    let buttonDel = createAnyElement("button", { class: "btn btn-danger btn-sm" })
-    buttonDel.innerHTML = "Del"
-
-    tdButtons.appendChild(buttonMod)
-    tdButtons.appendChild(buttonDel)
+    //Dropdown
+    let aDelete = createAnyElement("a", {class: "deleteBtn", href: "#"})
+    aDelete.innerHTML = "Delete"
+    let aModify = createAnyElement("a", {class: "modifyBtn", href: "#", onclick: "startModification(this)"})
+    aModify.innerHTML = "Modify"
+    let dropdownContentDiv = createAnyElement("div", {class: "dropdown-content"})
+    let iTag = createAnyElement("i", {class: "fas fa-align-justify"})
+    let dropButton = createAnyElement("button", {class: "dropbtn"})
+    dropButton.appendChild(iTag)
+    let dropdownDiv = createAnyElement("div", {class: "dropdown"})
+    let tdDropdown = createAnyElement("td", {rowspan: "2"})
+    dropdownContentDiv.appendChild(aModify)
+    dropdownContentDiv.appendChild(aDelete)
+    dropdownDiv.appendChild(dropButton)
+    dropdownDiv.appendChild(dropdownContentDiv)
+    tdDropdown.appendChild(dropdownDiv)
     
     tr1.appendChild(tdName)
-    tr1.appendChild(tdButtons)
-    table.appendChild(tr1)
+    tr1.appendChild(tdDropdown)
+    let tbody = createAnyElement("tbody")
+    tbody.appendChild(tr1)
     //dateTime
     let tdDate = createAnyElement("td", { class: "date" })
     tr2.appendChild(tdDate);
-    table.appendChild(tr2);
+    tbody.appendChild(tr2);
     //message
     let tdMessage = createAnyElement("td", { class: "message", colspan: 2 })
+    let messageDiv = createAnyElement("div")
+    let textArea = createAnyElement("textarea", {cols: "45", rows: "5"})
+    let input = createAnyElement("input", {type: "text", class: "form-control"})
+    tdMessage.appendChild(messageDiv)
+    tdMessage.appendChild(textArea)
+    tdMessage.appendChild(input)
     tr3.appendChild(tdMessage)
-    table.appendChild(tr3)
+    tbody.appendChild(tr3)
     //image
     let tdImage = createAnyElement("td", { class: "wall_image", colspan: 2 })
     tr4.appendChild(tdImage)
-    table.appendChild(tr4)
-
+    tbody.appendChild(tr4)
+    //Modify and Cancel buttons
+    let modifyButton = createAnyElement("button", {class: "btn btn-info", onclick: "updateContent()"})
+    modifyButton.innerHTML = "Modify"
+    let cancelButton = createAnyElement("button", {class: "btn btn-outline-secondary", onclick: "exitEditView()"})
+    cancelButton.innerHTML = "Cancel"
+    let buttonGroupDiv = createAnyElement("div", {class: "btn-group btn-block"})
+    buttonGroupDiv.appendChild(modifyButton)
+    buttonGroupDiv.appendChild(cancelButton)
+    let tdButtonGroup = createAnyElement("td", {colspan: "2"})
+    tdButtonGroup.appendChild(buttonGroupDiv);
+    tr5.appendChild(tdButtonGroup);
+    tbody.appendChild(tr5);
+    table.appendChild(tbody)
     message_logDiv.appendChild(table)
     //insertBefore
     messageWallDiv.insertBefore(message_logDiv, messageWallDiv.firstChild)
